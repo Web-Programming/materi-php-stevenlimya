@@ -23,7 +23,7 @@ class Mobil{
 $mobil_angel = new Mobil();
 
 // set property
-$mobil_angel->warna = "Merah";
+$mobil_steven->warna = "Merah";
 $mobil_angel->merk = "Lamborghini";
 
 // tampilkan property
