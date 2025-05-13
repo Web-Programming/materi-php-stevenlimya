@@ -6,10 +6,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('Beranda', ['name' => 'Steven lim', 'email' => 'Stevenlimya@gmail.com', 'alamat' => 'talang buruk']);
+Route::get('/beranda', function () {
+    return view('beranda', 
+    [
+        'name' => 'Angel',
+        'email' => 'angelstvny10@gmail.com',
+        'alamat' => 'Palembang']);
 });
 
-Route::get('/berita/{id}/{judul?}', function ($id, $judul = null) {
+Route::get('/berita/', function ($id, $judul = null) {
     return view('berita', ['id' => $id, 'judul' => $judul]);
 });

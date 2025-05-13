@@ -1,3 +1,3 @@
 <div>
-    <!-- It is quality rather than quantity that matters. - Lucius Annaeus Seneca -->
+    <!-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius -->
 </div>
