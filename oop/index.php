@@ -8,16 +8,16 @@
 <body>
     <?php echo "<h1>Welcome to my First Website with PHP</h1>"; ?>
     <p>Loremm impsum dolor set amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-    <p>My Name is <?php echo "<b> Angel </b>"; ?></p>
+    <p>My Name is <?php echo "<b> Steven </b>"; ?></p>
     <hr/>
     <h4>Menulis Variabel di PHP</h4>
     <?php
-        $nama = "Angel"; //string
+        $nama = "Steven"; //string
         $umur = 19; //number
         $perempuan = true; //boolean
         $saldo = null; //null
         $hobby = ['Menyanyi', 'Dance', 'Makan']; //array
-        $makanan_fav = array('Kentang', 'Manga', 'Mie'); //array
+        $makanan_fav = array('Kentang', 'Mangga', 'Mie'); //array
         #ini juga komentar
 
         //Variabel Statis
