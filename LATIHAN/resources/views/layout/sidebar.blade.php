@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <!--begin::Sidebar-->
       <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
         <!--begin::Sidebar Brand-->
@@ -70,3 +71,8 @@
         <!--end::Sidebar Wrapper-->
       </aside>
       <!--end::Sidebar-->
+=======
+<div>
+    <!-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius -->
+</div>
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394

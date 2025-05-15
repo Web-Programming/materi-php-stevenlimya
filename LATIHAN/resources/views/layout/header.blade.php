@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--begin::Header-->
       <nav class="app-header navbar navbar-expand bg-body">
         <!--begin::Container-->
@@ -197,3 +198,8 @@
         <!--end::Container-->
       </nav>
       <!--end::Header-->
+=======
+<div>
+    <!-- Always remember that you are absolutely unique. Just like everyone else. - Margaret Mead -->
+</div>
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394

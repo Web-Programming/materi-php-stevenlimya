@@ -9,6 +9,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+<<<<<<< HEAD
 Route::get("/profil", function(){
     return view("profil");
 });
@@ -35,3 +36,16 @@ Route::get('/materi/detail/{id}', [MateriController::class, 'detail']);
 Route::resource('prodi', ProdiController::class);
 
 Route::apiResource('api/mhs', MhsApiController::class);
+=======
+Route::get('/beranda', function () {
+    return view('beranda', 
+    [
+        'name' => 'Angel',
+        'email' => 'angelstvny10@gmail.com',
+        'alamat' => 'Palembang']);
+});
+
+Route::get('/berita/', function ($id, $judul = null) {
+    return view('berita', ['id' => $id, 'judul' => $judul]);
+});
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394

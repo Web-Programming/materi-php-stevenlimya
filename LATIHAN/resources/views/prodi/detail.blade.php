@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layout.master')
 
 @section('title', "Halaman Detail Prodi")
@@ -73,3 +74,8 @@
         <!--end::App Content-->
 @endsection
 
+=======
+<div>
+    <!-- Always remember that you are absolutely unique. Just like everyone else. - Margaret Mead -->
+</div>
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394

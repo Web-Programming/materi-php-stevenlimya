@@ -1,6 +1,6 @@
 <?php
-
 namespace Database\Seeders;
+<<<<<<< HEAD
 
 use App\Models\Mahasiswa;
 use App\Models\User;
@@ -10,6 +10,11 @@ use Hash;
 use Illuminate\Database\Seeder;
 use Str;
 
+=======
+use DB;
+use Hash;
+use Illuminate\Database\Seeder;
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,6 +22,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
         //insert data user
         DB::table('users')->insert([
             'name' => Str::random(10),
@@ -54,5 +60,20 @@ class DatabaseSeeder extends Seeder
         Mahasiswa::all(); //select * from mahasiswa
         Mahasiswa::where('id', '<', 3)->get(); //select * from mahasiswa where id < 3 
         Mahasiswa::select(['npm','nama'])->get(); //select npm, nama from mahasiswa 
+=======
+        // Menambahkan data ke tabel users
+        DB::table("users")->insert([
+            'name' => 'angel', 
+            'email' => 'angel@gmail.com', // Pastikan email valid
+            'password' => Hash::make("password") // Menggunakan Hash untuk password
+        ]);
+        // Mengupdate password untuk user dengan id 1
+        DB::table("users")->where("id", 1)
+            ->update([
+                'password' => Hash::make("123456") // Menggunakan Hash untuk password
+            ]);
+        // Menghapus semua user dengan id lebih dari 1
+        DB::table("users")->where("id", ">", 1)->delete();
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394
     }
 }

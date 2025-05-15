@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
   <!--begin::Head-->
@@ -118,3 +119,8 @@
   </body>
   <!--end::Body-->
 </html>
+=======
+<div>
+    <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->
+</div>
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394

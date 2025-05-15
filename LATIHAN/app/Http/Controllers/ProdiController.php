@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Models\Prodi;
 use DB;
 use Illuminate\Http\Request;
@@ -92,4 +93,22 @@ class ProdiController extends Controller
     {
         //
     }
+=======
+use Illuminate\Http\Request;
+use View;
+
+class ProdiController extends Controller
+{
+    //
+}
+
+public function index(): View{
+    $listprodi = prodi::get()
+    return view ("prodi.index");
+}
+public function create():{
+    return view
+
+
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394
 }

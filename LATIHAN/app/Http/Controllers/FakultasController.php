@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class FakultasController extends Controller
 {
+<<<<<<< HEAD
     /**
      * Display a listing of the resource.
      */
@@ -61,4 +62,7 @@ class FakultasController extends Controller
     {
         //
     }
+=======
+    //
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394
 }

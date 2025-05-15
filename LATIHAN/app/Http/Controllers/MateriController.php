@@ -11,7 +11,11 @@ class MateriController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         return view("materi.index");
+=======
+        //
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394
     }
 
     /**

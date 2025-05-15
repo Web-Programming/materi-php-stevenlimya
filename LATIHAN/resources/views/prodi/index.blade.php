@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layout.master')
 
 @section('title', "Halaman List Prodi")
@@ -102,3 +103,8 @@
         <!--end::App Content-->
 @endsection
 
+=======
+<div>
+    <h1>Ini Halaman Prodi</h1>
+</div>
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layout.master')
 
 @section('title', "Halaman Detail Prodi")
@@ -82,3 +83,8 @@
         <!--end::App Content-->
 @endsection
 
+=======
+<div>
+    <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
+</div>
+>>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394
