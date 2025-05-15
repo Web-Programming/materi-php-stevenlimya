@@ -1,5 +1,5 @@
 <div>
-    <h1>berita</h1>
-    <h2>ID : {{ $id }}</h2>
-    <h3>judul :{{ $judul }}</h3>
+    <h4>Ini Adalah Halaman Berita</h4>
+    ID: <?php echo $id; ?><br/>
+    Title: <?php echo $title; ?><br/>
 </div>
