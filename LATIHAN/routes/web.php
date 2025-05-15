@@ -1,42 +1,23 @@
 <?php
 
 use App\Http\Controllers\MateriController;
-use App\Http\Controllers\MhsApiController;
 use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DosenController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
-
-<<<<<<< HEAD
-Route::get("/profil", function(){
-    return view("profil");
-});
-
-Route::get("/berita/{id}/{title?}", function($id, $title = NULL){
-    return view("berita", ['id' => $id, 'title' => $title]);
-});
-
-Route::get("/total/{bil1}/{bil2?}/{bil3?}", 
-    function($bil1, $bil2, $bil3 = 0){
-    return view("hasil", [
-        'total' => $bil1 + $bil2 + $bil3, 
-        'bil1' => $bil1, 
-        'bil2' => $bil2, 
-        'bil3' => $bil3
-    ]);
-});
-
-
-Route::get('/materi/index', [MateriController::class, 'index']);
-
-Route::get('/materi/detail/{id}', [MateriController::class, 'detail']);
-
+Route::resource('materi', MateriController::class);
 Route::resource('prodi', ProdiController::class);
+Route::resource('fakultas', FakultasController::class);
+Route::resource('mhs', MahasiswaController::class);
+Route::resource('dosen', DosenController::class);
 
-Route::apiResource('api/mhs', MhsApiController::class);
-=======
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/beranda', function () {
     return view('beranda', 
     [
@@ -48,4 +29,5 @@ Route::get('/beranda', function () {
 Route::get('/berita/', function ($id, $judul = null) {
     return view('berita', ['id' => $id, 'judul' => $judul]);
 });
->>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394
+
+Route::get('/prodi/index', [ProdiController::class,'index']);

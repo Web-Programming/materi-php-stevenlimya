@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @extends('layout.master')
 
 @section('title', "Halaman List Prodi")
@@ -55,38 +54,34 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    @if (session("status"))
-                      <div class="alert alert-success">
-                        {{ session("status")}}
-                      </div>
-                    @endif  
-
-                    <a href="{{url("/prodi/create" )}}" class="btn btn-small btn-success">
-                        Buat Prodi Baru
-                    </a>
-                   <table class="table table-bordered mt-2">
-                    <tr>
-                      <th>No</th>
-                      <th>Kode</th>
-                      <th>Nama</th>
-                      <th>Aksi</th>
-                    </tr>
-                    @foreach ($listprodi as $prodi) 
-                      <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$prodi->kode_prodi}}</td>
-                        <td>{{$prodi->nama}}</td>
-                        <td>
-                          <form action="delete">
-                            <a href="{{url("/prodi/".$prodi->id."/edit" )}}" class="btn btn-small btn-warning">
-                              Edit
-                            </a> 
-                            <button type="submit" class="btn btn-small btn-danger">Delete</button>
-                          </form>  
-                        </td>
-                      </tr>
-                    @endforeach
-                   </table>
+                    <a href="{{ url('prodi/create') }}" class="btn btn-success" >Buat Prodi Baru</a>
+                    <table class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Nama Prodi</th>
+                          <th>Kode Prodi</th>
+                          <th>Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ( $listprodi as $prodi)
+                          <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $prodi->nama }}</td>
+                            <td>{{ $prodi->kode_prodi }}</td>
+                            <td>
+                              <a href="{{ url('prodi/'.$prodi->id.'/edit') }}" >Edit</a>
+                              <form action="{{ url('prodi/'.$prodi->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-link">Delete</button>
+                              </form>
+                            </td>
+                          </tr>
+                        @endforeach
+                      </tbody>                 
+                    </table>
 
                   </div>
                   <!-- /.card-body -->
@@ -102,9 +97,3 @@
         </div>
         <!--end::App Content-->
 @endsection
-
-=======
-<div>
-    <h1>Ini Halaman Prodi</h1>
-</div>
->>>>>>> ce350605ab7ba9f1d37935772789681a1ab8c394
