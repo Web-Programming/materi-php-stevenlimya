@@ -20,20 +20,20 @@ class Mobil{
 }
 
 //buat object dari class Mobil (instansiasi)
-$mobil_angel = new Mobil();
+$mobil_steven = new Mobil();
 
 // set property
-$mobil_angel->warna = "Merah";
-$mobil_angel->merk = "Lamborghini";
+$mobil_steven->warna = "Merah";
+$mobil_steven->merk = "Lamborghini";
 
 // tampilkan property
-echo "Mobil Angel";
-echo "<br>Warna : ". $mobil_angel->warna;
-echo "<br>Merk : ". $mobil_angel->merk;
+echo "Mobil steven";
+echo "<br>Warna : ". $mobil_steven->warna;
+echo "<br>Merk : ". $mobil_steven->merk;
 echo "<br>";
 
 // tampilkan method
-echo $mobil_angel->maju();
+echo $mobil_steven->maju();
 echo "<br>";
-echo $mobil_angel->berhenti();
+echo $mobil_steven->berhenti();
 ?>    
