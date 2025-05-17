@@ -47,7 +47,8 @@ class ProdiController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $prodi = Prodi::find($id);
+        return view("prodi.detail", ['detailprodi' => $prodi]);
     }
 
     /**
@@ -55,7 +56,8 @@ class ProdiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $prodi = Prodi::find($id);
+        return view("prodi.edit", ['editprodi' => $prodi]);
     }
 
     /**
