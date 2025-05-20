@@ -69,7 +69,7 @@
                           <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $prodi->nama }}</td>
-                            <td>{{ $prodi->kode_prodi }}</td>
+                            <td>{{ $prodi->Kode_Prodi }}</td>
                             <td>
                               <a href="{{ url('prodi/'.$prodi->id.'/edit') }}" >Edit</a>
                               <form action="{{ url('prodi/'.$prodi->id) }}" method="post">

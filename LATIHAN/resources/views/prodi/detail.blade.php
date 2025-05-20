@@ -56,7 +56,7 @@
                   </div>
                   <div class="card-body">
                     ID Prodi : {{ $prodi->id }} <br>
-                    Kode Prodi : {{ $prodi->kode_prodi }} <br>
+                    Kode Prodi : {{ $prodi->Kode_Prodi }} <br>
                     Tanggal Buat : {{ $prodi->created_at }} <br>
                     Tanggal Update : {{ $prodi->updated_at }} <br>
                   </div>
