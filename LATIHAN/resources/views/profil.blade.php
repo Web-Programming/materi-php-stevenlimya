@@ -6,6 +6,6 @@
     <title>Halaman Profil</title>
 </head>
 <body>
-    <h1>Nur Rachmat</h1>
+    <h1>Steven Lim</h1>
 </body>
 </html>
