@@ -31,14 +31,14 @@ class ProdiController extends Controller
     {
         $validateData = $request->validate([
             'nama' => 'required|min:5|max:20',
-            'kode_prodi' => 'required|min:2|max:2'
-             'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'kode_prodi' => 'required|min:2|max:2',
+            'logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
              ]
         );
 
         $prodi = new Prodi();
-        $prodi->nama = $validatedData['nama'];
-        $prodi->kode_prodi = $validatedData['kode_prodi'];
+        $prodi->nama = $validateData['nama'];
+        $prodi->kode_prodi = $validateData['kode_prodi'];
 
         // upload logo
         if ($request->hasFile('logo')) {

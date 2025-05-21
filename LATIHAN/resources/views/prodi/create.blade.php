@@ -61,7 +61,7 @@
       </div>
     @endif
 
-    <form method="post" action="{{ url("prodi") }}">
+    <form method="post" action="{{ url("prodi") }}" enctype="multipart/form-data">
       @csrf
       <div class="mb-3">
         <label>Nama Prodi</label>
