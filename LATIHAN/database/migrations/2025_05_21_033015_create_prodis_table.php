@@ -13,9 +13,6 @@ return new class extends Migration
     {
         Schema::create('prodis', function (Blueprint $table) {
             $table->id();
-            $table->string("kode_prodi", 2);
-            $table->string("nama", 100);
-            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }
