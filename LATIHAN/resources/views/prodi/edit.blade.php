@@ -14,7 +14,7 @@
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="{{ url("/") }}">Home</a></li>
                   <li class="breadcrumb-item"><a href="{{ url("/prodi") }}">Program Studi</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Edit Program Studi</li>
+                  <li class="breadcrumb-item active" aria-current="page">Create Program Studi</li>
                 </ol>
               </div>
             </div>
@@ -55,31 +55,34 @@
                     </div>
                   </div>
                   <div class="card-body">
-                @if (session('status'))
-                  <div class = "alert alert = success">
-                    ((session ('status')))
-                  </div>
-                @endif
-                <form method="post" action="{{ url("prodi/".$prodi->id) }}">
-                  @csrf
-                  @method("PUT")
-                  <div class="mb-3">
-                    <label >Nama prodi</label>
-                    <input type="text" name="nama" class="form-control" value="{{ old('nama', $prodi->nama) }}">
-                    @Error('nama')
-                      <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                  </div>
-                   <div class="mb-3">
-                    <label >Kode Prodi</label>
-                    <input type="text" name="kode_prodi" class="form-control" value="{{ old('kode_prodi',$prodi->kode_prodi) }}">
-                    @Error('kode_prodi')
-                      <div class="text-danger">{{ $message }} </div>
-                    @enderror
-                  </div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
 
-                  </form>
+    <form method="post" action="{{ url("prodi/".$prodi->id) }}">
+        @csrf
+        @method("PUT")
+        <div class="mb-3">
+            <label>Nama Prodi</label>
+            <input type="text" name="nama" class="form-control" value="{{ old('nama', $prodi->nama) }}">
+            @error('nama')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label>Kode Prodi</label>
+            <input type="text" name="kode_prodi" class="form-control" value="{{ old('kode_prodi', $prodi->kode_prodi) }}">
+            @error('kode_prodi')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
                   <!-- /.card-body -->
                   <div class="card-footer">Footer</div>
                   <!-- /.card-footer-->
