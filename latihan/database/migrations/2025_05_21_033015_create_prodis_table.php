@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('prodis', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD:LATIHAN/database/migrations/2025_05_13_070717_create_prodis_table.php
             $table->string("kode_prodi", 2);
             $table->string("nama", 100);
             $table->string('logo')->nullable();
+=======
+>>>>>>> cca62f209bcf10989bc569d20c75a10ba636e11c:latihan/database/migrations/2025_05_21_033015_create_prodis_table.php
             $table->timestamps();
         });
     }

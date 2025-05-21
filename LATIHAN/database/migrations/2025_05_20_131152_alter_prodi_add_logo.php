@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('materis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('prodis', function (Blueprint $table) {
+            $table->string('logo')->nullable()->after('kode_prodi');
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('materis');
+        Schema::table('prodis', function (Blueprint $table) {
+            //
+        });
     }
 };
