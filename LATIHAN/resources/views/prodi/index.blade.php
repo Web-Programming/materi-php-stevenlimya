@@ -54,7 +54,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <a href="{{ url('prodi/create') }}" class="btn btn-success" >Buat Prodi Baru</a>
+                    @can(abilities: 'create', arguments: App\Models\Prodi::class)
+                    <a href="{{ url(auth()->user()->level.'prodi/create') }}" class="btn btn-success" >Buat Prodi Baru</a>
 
                     @if (session('status'))
                       <div class="alert alert-success">

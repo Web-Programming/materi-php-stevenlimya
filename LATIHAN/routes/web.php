@@ -39,6 +39,8 @@ Route::get("/register", [AuthController::class, 'register']);
 Route::post("/register", [AuthController::class, 'do_register']);
 Route::get("/logout", [AuthController::class, 'logout']);
 
+//Route Grouping With Middleware
+
 Route::group(['middleware' => ['auth']], function (): void {
     Route::group(['middleware' => [CekLogin::class . ':admin']], function (): void {
         Route::get('/admin', [AdminController::class, 'index']);
