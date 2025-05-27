@@ -15,8 +15,8 @@ Route::get('/', [AuthController::class, 'login']);
 
 // Route::get('login', function () {
 //     return view('login', [
-//         'name' => 'Stevany Angel',
-//         'email' => 'angelstvny@gmail.com',
+//         'name' => 'Steven Lim',
+//         'email' => 'Stevenlimya.com',
 //         'alamat' => 'Palembang'
 // ]
 // );
