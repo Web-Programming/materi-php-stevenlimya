@@ -1,55 +1,57 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\http\controllers\ProdiController;
-use App\Http\Controllers\MahasiswaController;
-use App\Http\Controllers\DosenController;
-use App\Http\Controllers\FakultasController;
-use App\Http\Controllers\MateriController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CekLogin;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'login']);
 
-// Route::get('login', function () {
-//     return view('login', [
-//         'name' => 'Steven Lim',
-//         'email' => 'Stevenlimya.com',
-//         'alamat' => 'Palembang'
-// ]
-// );
+// Route::get('/home', function(){
+//     return view('beranda', 
+//     [
+//             'name' => 'steven lim',
+//             'email' => 'stevenlimya@gmail.com',
+//             'alamat' => 'Palembang'
+//         ]
+//     );
 // });
-// Route::get('/berita/{id}/{judul?}', function ($id, $judul = judul) {
+
+// Route::get('/berita/{id}/{judul?}', function($id, $judul = null){
 //     return view('berita', ['id' => $id, 'judul' => $judul]);
 // });
 
-#route materi
-Route::get('/prodi/index', [ProdiController::class, 'index']);
-Route::resource('prodi', ProdiController::class);
-Route::resource('fakultas', FakultasController::class);
-Route::resource('mhs', MahasiswaController::class); // ganti dari 'mahasiswa' ke 'mhs'
-Route::resource('dosen', DosenController::class);
+//membuat route ke halam prodi index melalui controller ProdiController
+//Route::get('/prodi/index', [ProdiController::class,'index']);
 
-// authentication
+//Route::resource('prodi', ProdiController::class);
+
+//Authentication
 Route::get("/login", [AuthController::class, 'login'])->name('login');
 Route::post("/login", [AuthController::class, 'do_login']);
 Route::get("/register", [AuthController::class, 'register']);
 Route::post("/register", [AuthController::class, 'do_register']);
 Route::get("/logout", [AuthController::class, 'logout']);
 
-//Route Grouping With Middleware
+// Route Grouping with Middleware
+Route::group(['middleware' => ['auth']], function(){
 
-Route::group(['middleware' => ['auth']], function (): void {
-    Route::group(['middleware' => [CekLogin::class . ':admin']], function (): void {
-        Route::get('/admin', [AdminController::class, 'index']);
+    Route::get("/admin", [AdminController::class, 'index'])
+        ->middleware(CekLogin::class.':admin');
+    Route::get("/user", [UserController::class, 'index'])
+        ->middleware(CekLogin::class.':user');
+
+    Route::prefix('admin')->group(function(){
         Route::resource('prodi', ProdiController::class);
         Route::resource('fakultas', FakultasController::class);
-    });
+    })->middleware(CekLogin::class.':admin');
 
-    Route::group(['middleware' => [CekLogin::class . ':user']], function (): void {
-        Route::get('/user', [UserController::class, 'index']);
-    });
+    Route::prefix('user')->group(function(){
+        Route::resource('prodi', ProdiController::class);
+    })->middleware(CekLogin::class.':user');
+
 });
 

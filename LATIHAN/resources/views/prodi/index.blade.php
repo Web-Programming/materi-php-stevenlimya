@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', "Dashboard - Home")
+@section('title', "Halaman List Prodi")
 
 @section('content')
         <!--begin::App Content Header-->
@@ -54,9 +54,9 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    @can(abilities: 'create', arguments: App\Models\Prodi::class)
-                    <a href="{{ url(auth()->user()->level.'prodi/create') }}" class="btn btn-success" >Buat Prodi Baru</a>
-
+                    @can('create', App\Models\Prodi::class)
+                      <a href="{{ url(auth()->user()->level.'/prodi/create') }}" class="btn btn-success" >Buat Prodi Baru</a>
+                    @endcan
                     @if (session('status'))
                       <div class="alert alert-success">
                           {{ session('status') }}
@@ -70,7 +70,9 @@
                           <th>Nama Prodi</th>
                           <th>Kode Prodi</th>
                           <th>Logo</th>
-                          <th>Aksi</th>
+                          @canAny(['update', 'delete', 'view'], App\Models\Prodi::class)
+                            <th>Aksi</th>
+                          @endcanAny
                         </tr>
                       </thead>
                       <tbody>
@@ -79,22 +81,30 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $prodi->nama }}</td>
                             <td>{{ $prodi->kode_prodi }}</td>
-                            <td>
+                            <td>{{ $prodi->logo }}
                               @if ($prodi->logo)
                                 <img src="{{ asset('images/'.$prodi->logo) }}" alt="" width="100px">
                               @else
                                 <p>Logo tidak ada</p>
                               @endif
                             </td>
-                            <td>
-                              <form action="{{ url('prodi/'.$prodi->id) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <a href="{{ url('prodi/'.$prodi->id) }}" class="btn btn-info btn-sm">Detail</a>
-                                <a href="{{ url('prodi/'.$prodi->id.'/edit') }}" class="btn btn-warning btn-sm">Edit</a>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                              </form>
-                            </td>
+                            @canAny(['update', 'delete', 'view'], App\Models\Prodi::class)
+                              <td>
+                                <form action="{{ url(auth()->user()->level.'/prodi/'.$prodi->id) }}" method="post">
+                                  @csrf
+                                  @method('DELETE')
+                                  @can('view', $prodi)
+                                  <a href="{{ url(auth()->user()->level.'/prodi/'.$prodi->id) }}" class="btn btn-link" >Detail</a>
+                                  @endcan
+                                  @can('update', $prodi)
+                                  <a href="{{ url(auth()->user()->level.'/prodi/'.$prodi->id.'/edit') }}" class="btn btn-link" >Edit</a>
+                                  @endcan
+                                  @can('delete', $prodi)
+                                  <button type="submit" class="btn btn-link">Delete</button>
+                                  @endcan
+                                </form>
+                              </td>
+                            @endcanAny
                           </tr>
                         @endforeach
                       </tbody>                 
@@ -114,3 +124,4 @@
         </div>
         <!--end::App Content-->
 @endsection
+

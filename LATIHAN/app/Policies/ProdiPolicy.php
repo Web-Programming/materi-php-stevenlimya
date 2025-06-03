@@ -5,7 +5,6 @@ namespace App\Policies;
 use App\Models\Prodi;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
-use PhpParser\Node\Expr\Variable;
 
 class ProdiPolicy
 {
@@ -14,7 +13,8 @@ class ProdiPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->level == 'admin' || $user->level == 'dosen';
+        return $user->level == 'admin' || $user->level == 'dosen' 
+        || $user->level == 'user';
     }
 
     /**
